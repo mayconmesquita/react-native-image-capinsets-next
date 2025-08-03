@@ -9,7 +9,7 @@
   "scripts": {
     "patch": "npm version patch -m 'Bump version %s';git push origin master --tags"
   },
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "android support for Image `capInsets`",
   "author": {
     "name": "mayconmesquita",
