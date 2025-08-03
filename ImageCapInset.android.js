@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  View,
-  Image,
-  requireNativeComponent,
-} from 'react-native';
+import { View, requireNativeComponent } from 'react-native';
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
 class ImageCapInset extends Component {
@@ -34,7 +30,19 @@ class ImageCapInset extends Component {
 
 ImageCapInset.propTypes = {
   ...View.propTypes,
-  source: Image.propTypes.source,
+  source: PropTypes.oneOfType([
+    PropTypes.shape({
+      uri: PropTypes.string,
+    }),
+    PropTypes.number,
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        uri: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+      })
+    ),
+  ]),
   capInsets: PropTypes.shape({
     top: PropTypes.number,
     left: PropTypes.number,
